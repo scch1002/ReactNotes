@@ -1,0 +1,12 @@
+{
+  "name": "react-notes",
+  "version": "0.0.0",
+  "description": "ReactNotes",
+  "main": "app.js",
+  "author": {
+    "name": "Chris"
+  },
+  "devDependencies": {
+    "@types/node": "^6.0.87"
+  }
+}
