@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "ReactNotes", "ReactNotes\ReactNotes.njsproj", "{39450814-F35D-4C57-BCDD-879AF37E6EC2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReactNotes", "ReactNotes\ReactNotes.csproj", "{42604D37-022F-48F9-B73B-8AC5312EF631}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{39450814-F35D-4C57-BCDD-879AF37E6EC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{39450814-F35D-4C57-BCDD-879AF37E6EC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{39450814-F35D-4C57-BCDD-879AF37E6EC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{39450814-F35D-4C57-BCDD-879AF37E6EC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42604D37-022F-48F9-B73B-8AC5312EF631}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42604D37-022F-48F9-B73B-8AC5312EF631}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42604D37-022F-48F9-B73B-8AC5312EF631}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42604D37-022F-48F9-B73B-8AC5312EF631}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

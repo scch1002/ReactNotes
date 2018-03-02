@@ -1,11 +1,19 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
+    "baseUrl": ".",
+    "module": "es2015",
+    "moduleResolution": "node",
     "target": "es5",
-    "lib": ["es5"],
-    "sourceMap": true
+    "jsx": "react",
+    "experimentalDecorators": true,
+    "sourceMap": true,
+    "skipDefaultLibCheck": true,
+    "strict": true,
+    "lib": ["es6", "dom"],
+    "types": ["webpack-env"]
   },
   "exclude": [
-    "node_modules"
+      "bin",
+      "node_modules"
   ]
 }
