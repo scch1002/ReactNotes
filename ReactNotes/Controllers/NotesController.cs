@@ -35,8 +35,17 @@ namespace ReactNotes.Controllers
 
         // POST api/<controller>
         [HttpPost]
-        public void Post([FromBody]string value)
+        public void Post([FromBody]Reminder reminder)
         {
+            var tableConfiguration = new TableConfiguration
+            {
+                ConfigurationString = @"DefaultEndpointsProtocol=https;AccountName=grace1002;AccountKey=oxFfz+dgsWONgXbVTX0KKeH0L5X4kBANp10siMiobJTt9Q6P8TXHw9wb7RDx3f3ALwMCjS4rpYu9Zwe8trYNPg==;EndpointSuffix=core.windows.net",
+                TableName = "Reminders"
+            };
+
+            var repository = new ReminderRepository(tableConfiguration);
+
+            repository.AddReminder(reminder);
         }
 
         // PUT api/<controller>/5

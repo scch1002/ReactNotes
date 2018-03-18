@@ -3,6 +3,7 @@ import { Link, RouteComponentProps } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { ApplicationState } from '../store';
 import * as NotesState from '../store/Notes';
+import { ChangeEvent } from 'react';
 
 // At runtime, Redux will merge together...
 type NotesProps =
@@ -23,14 +24,15 @@ class Notes extends React.Component<NotesProps, {}> {
         return <div>
             <h1>Notes</h1>
             <p>These are the stored notes</p>
+            {this.renderAddNote()}
             {this.renderNotesTable()}
         </div>;
     }
 
     private renderAddNote() {
         return <div>
-            <button content='Add' />
-            <input type='text' />
+            <button onClick={this.props.addNote}>Add</button>
+            <input type='text' value={this.props.newNote.text} onChange={e => this.addNoteTextChange(e)} />
         </div>;
     }
 
@@ -51,6 +53,10 @@ class Notes extends React.Component<NotesProps, {}> {
                 )}
             </tbody>
         </table>;
+    }
+
+    private addNoteTextChange(event: React.ChangeEvent<HTMLInputElement>) {
+        this.props.newNote.text = event.target.value;
     }
 }
 

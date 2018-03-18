@@ -21,8 +21,8 @@ export interface Note {
 // They do not themselves have any side-effects; they just describe something that is going to happen.
 
 interface AddNoteAction {
-    type: 'ADD_NOTE';
-    newNote: Note
+    type: 'ADDED_NOTE';
+    newNote: Note;
 }
 
 interface RequestNotesAction {
@@ -53,8 +53,22 @@ export const actionCreators = {
         addTask(fetchTask); // Ensure server-side prerendering waits for this to complete
         dispatch({ type: 'REQUEST_NOTES'});
     },
-    addNote: (): AppThunkAction<AddNoteAction> => (dispatch, getState) => {
-        
+    addNote: (): AppThunkAction<KnownAction> => (dispatch, getState) => {
+        var newNote = getState().notes.newNote;
+        let fetchTask = fetch('api/Notes/',
+            {
+                method: 'POST',
+                body: JSON.stringify(newNote),
+                headers: {
+                    'Content-Type': 'application/json;charset=UTF-8'
+                }
+            })
+            .then(response => response.json() as Promise<Note>)
+            .then(data => {
+                dispatch({ type: 'ADDED_NOTE', newNote});
+            });
+
+        addTask(fetchTask); // Ensure server-side prerendering waits for this to complete
     }
 };
 
@@ -71,7 +85,8 @@ export const reducer: Reducer<NotesState> = (state: NotesState, incomingAction: 
                     notes: action.notes,
                     newNote: state.newNote 
                 };
-        case 'ADD_NOTE':
+        case 'ADDED_NOTE':
+            state.notes.push(action.newNote);
             return {
                 notes: state.notes,
                 newNote: { id: '0', text: '', time: new Date() }
